@@ -29,6 +29,10 @@ url: "https://mavarazo.github.io" # the base hostname & protocol for your site, 
 # twitter_username: jekyllrb
 github_username:  mavarazo
 
+navigation:
+  - text: About
+    link: /about
+
 # Build settings
 theme: minima
 plugins:
@@ -53,3 +57,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+sass:
+  sass_dir: assets/css
+  style: compressed
