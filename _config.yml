@@ -32,6 +32,11 @@ github_username:  mavarazo
 navigation:
   - text: About
     link: /about
+  - text: Games
+    sublinks:
+      - text: EXIT - Das Spiel
+        link: /games/exit
+        
 
 # Build settings
 theme: minima

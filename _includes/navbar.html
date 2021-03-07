@@ -5,10 +5,30 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            {% for item in site.navigation %}
-            <a class="nav-item nav-link" href="{{item.link}}">{{ item.text }}</a>
+        <ul class="nav navbar-nav">
+            {% assign items = site.navigation %}
+            {% for item in items %}
+                {% if item.sublinks %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ item.text }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for subitem in item.sublinks %}
+                            {% if subitem.text == 'separator' %}
+                                <div class="dropdown-divider"></div>
+                            {% else %}
+                                <a href="{{ subitem.link }}" class="dropdown-item">{{ subitem.text }}</a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item {{ class }}">
+                        <a href="{{ item.link }}" class="nav-link">{{ item.text }}</a>
+                    </li>
+                {% endif %}
             {% endfor %}
-        </div>
+        </ul>
     </div>
 </nav>
