@@ -4,4 +4,29 @@ title: EXIT - Das Spiel
 permalink: /games/exit
 ---
 
-EXIT - Das Spiel
+<h1>EXIT - Das Spiel</h1>
+
+<table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th class="text-center">Gespielt</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for exit in site.data.exit %}
+        <tr>
+            <td>{{ exit.name }}</td>
+            <td>{{ exit.level }}</td>
+            <td class="text-center">
+                {% if exit.played %}
+                <i class="far fa-check-circle" data-toggle="tooltip" data-placement="right" title="{{ exit.played }}"></i>
+                {% else %}
+                <i class="far fa-circle"></i>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
